@@ -1,3 +1,4 @@
+import copy
 import random
 
 def draw_letters():
@@ -16,7 +17,12 @@ def draw_letters():
         
 
 def uses_available_letters(word, letter_bank):
-    pass
+    copy_letters = copy.deepcopy(letter_bank)
+    for letter in word:
+        if letter not in copy_letters:
+            return False
+        copy_letters.remove(letter)
+    return True
 
 def score_word(word):
     pass
